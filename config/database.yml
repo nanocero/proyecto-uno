@@ -6,14 +6,14 @@
 #
 default: &default
   adapter: postgresql
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: development
+  database: dev_
   username: postgres
-  password: sala2
+  password: andap
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -21,12 +21,11 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: test
+  database: test_
   username: postgres
-  password: sala2
+  password: andap
   host: localhost
-
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: production
